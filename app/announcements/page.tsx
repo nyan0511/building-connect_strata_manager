@@ -1,6 +1,21 @@
 import PageHeader from '../components/PageHeader';
 
-const announcements = [
+// Define priority type
+type Priority = 'emergency' | 'important' | 'general';
+type Category = 'Maintenance' | 'Policy' | 'Financial' | 'Safety' | 'Social';
+
+interface Announcement {
+  id: number;
+  title: string;
+  category: Category;
+  priority: Priority;
+  date: string;
+  author: string;
+  content: string;
+  tags: string[];
+}
+
+const announcements: Announcement[] = [
   {
     id: 1,
     title: "Pool Maintenance - Temporary Closure",
@@ -83,13 +98,13 @@ const announcements = [
   }
 ];
 
-const priorityColors = {
+const priorityColors: Record<Priority, string> = {
   emergency: 'bg-red-100 text-red-800 border-red-200',
   important: 'bg-orange-100 text-orange-800 border-orange-200',
   general: 'bg-blue-100 text-blue-800 border-blue-200'
 };
 
-const categoryColors = {
+const categoryColors: Record<Category, string> = {
   Maintenance: 'bg-yellow-100 text-yellow-800',
   Policy: 'bg-purple-100 text-purple-800',
   Financial: 'bg-green-100 text-green-800',
@@ -97,7 +112,7 @@ const categoryColors = {
   Social: 'bg-blue-100 text-blue-800'
 };
 
-const categoryIcons = {
+const categoryIcons: Record<Category, string> = {
   Maintenance: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z',
   Policy: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
   Financial: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1',
@@ -131,7 +146,7 @@ export default function AnnouncementsPage() {
   // Sort announcements by date (newest first) and priority
   const sortedAnnouncements = announcements.sort((a, b) => {
     // First sort by priority (emergency > important > general)
-    const priorityOrder = { emergency: 3, important: 2, general: 1 };
+    const priorityOrder: Record<Priority, number> = { emergency: 3, important: 2, general: 1 };
     const priorityDiff = priorityOrder[b.priority] - priorityOrder[a.priority];
     if (priorityDiff !== 0) return priorityDiff;
     
