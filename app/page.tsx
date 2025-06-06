@@ -42,7 +42,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Building Address</h3>
-              <p className="text-gray-600">123 Harbor View Drive<br />Sydney NSW 2000</p>
+              <p className="text-gray-600">{process.env.BUILDING_ADDRESS || "123 Harbor View Drive, Sydney NSW 2000"}</p>
             </div>
             
             <div className="text-center">

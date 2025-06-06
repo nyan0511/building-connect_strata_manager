@@ -66,6 +66,19 @@ const facilities = [
       "No commercial vehicle washing",
       "Return hose to proper position"
     ]
+  },
+  {
+    name: "Building Lobby",
+    image: "/assets/facilities/lobby.jpg",
+    description: "Elegant entrance lobby with comfortable seating areas, reception desk, and modern design for welcoming residents and guests.",
+    hours: "24/7 Access",
+    booking: "No booking required",
+    rules: [
+      "Keep noise levels considerate",
+      "No food or drinks in seating areas",
+      "Report any maintenance issues to reception",
+      "Guest registration required after 10:00 PM"
+    ]
   }
 ];
 

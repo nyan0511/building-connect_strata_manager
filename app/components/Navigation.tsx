@@ -5,8 +5,13 @@ import { usePathname } from 'next/navigation';
 
 const navigationItems = [
   { href: '/', label: 'Home', active: '/' },
+  { href: '/building-info', label: 'Building Info', active: '/building-info' },
+  { href: '/events', label: 'Events', active: '/events' },
+  { href: '/announcements', label: 'Announcements', active: '/announcements' },
   { href: '/facilities', label: 'Facilities', active: '/facilities' },
   { href: '/logs', label: 'Meeting Logs', active: '/logs' },
+  { href: '/contact', label: 'Contact', active: '/contact' },
+  { href: '/finances', label: 'Finances', active: '/finances' },
 ];
 
 export default function Navigation() {

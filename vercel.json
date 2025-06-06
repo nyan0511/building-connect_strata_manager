@@ -1,0 +1,56 @@
+{
+  "regions": ["syd1"],
+  "env": {
+    "BUILDING_ADDRESS": "123 Harbour View Drive, Sydney NSW 2000"
+  },
+  "functions": {
+    "app/api/upload/route.js": {
+      "maxDuration": 30
+    },
+    "app/api/cron/quarterly-report/route.js": {
+      "maxDuration": 60
+    },
+    "app/api/calculate-levy/route.js": {
+      "runtime": "edge",
+      "maxDuration": 10
+    },
+    "app/api/event-rsvp/route.js": {
+      "runtime": "edge",
+      "maxDuration": 10
+    },
+    "app/api/maintenance-request/route.js": {
+      "runtime": "edge",
+      "maxDuration": 10
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/quarterly-report",
+      "schedule": "0 0 1 */3 *"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/facilities/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/documents/(.*\\.pdf)",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "inline"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
+  ]
+} 
