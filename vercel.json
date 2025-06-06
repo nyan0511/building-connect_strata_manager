@@ -11,16 +11,13 @@
       "maxDuration": 60
     },
     "app/api/calculate-levy/route.js": {
-      "runtime": "edge",
-      "maxDuration": 10
+      "runtime": "edge"
     },
     "app/api/event-rsvp/route.js": {
-      "runtime": "edge",
-      "maxDuration": 10
+      "runtime": "edge"
     },
     "app/api/maintenance-request/route.js": {
-      "runtime": "edge",
-      "maxDuration": 10
+      "runtime": "edge"
     }
   },
   "crons": [
@@ -31,7 +28,7 @@
   ],
   "headers": [
     {
-      "source": "/assets/facilities/(.*)",
+      "source": "/assets/building-info/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -40,7 +37,7 @@
       ]
     },
     {
-      "source": "/assets/documents/(.*\\.pdf)",
+      "source": "/assets/building-info/(.*\\.pdf)",
       "headers": [
         {
           "key": "Content-Disposition",
