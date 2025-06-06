@@ -9,15 +9,6 @@
     },
     "app/api/cron/quarterly-report/route.js": {
       "maxDuration": 60
-    },
-    "app/api/calculate-levy/route.js": {
-      "runtime": "edge"
-    },
-    "app/api/event-rsvp/route.js": {
-      "runtime": "edge"
-    },
-    "app/api/maintenance-request/route.js": {
-      "runtime": "edge"
     }
   },
   "crons": [
