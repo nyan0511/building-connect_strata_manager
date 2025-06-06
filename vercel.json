@@ -1,4 +1,6 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
   "regions": ["syd1"],
   "env": {
     "BUILDING_ADDRESS": "123 Harbour View Drive, Sydney NSW 2000"
@@ -31,8 +33,8 @@
       "source": "/assets/building-info/(.*\\.pdf)",
       "headers": [
         {
-          "key": "Content-Disposition",
-          "value": "inline"
+          "key": "Content-Type",
+          "value": "application/pdf"
         },
         {
           "key": "Cache-Control",
